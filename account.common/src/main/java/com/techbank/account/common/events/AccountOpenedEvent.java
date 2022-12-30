@@ -16,7 +16,7 @@ import java.util.Date;
 public class AccountOpenedEvent extends BaseEvent {
     private String accountHolder;
     private AccountType accountType;
-    private Date date;
+    private Date createDate;
     private double openingBalance;
 
 }
