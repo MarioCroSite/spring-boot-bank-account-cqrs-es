@@ -18,6 +18,10 @@ public class AccountEventStore implements EventStore {
 
     private EventStoreRepository eventStoreRepository;
 
+    public AccountEventStore(EventStoreRepository eventStoreRepository) {
+        this.eventStoreRepository = eventStoreRepository;
+    }
+
     @Override
     public void saveEvents(String aggregateId, Iterable<BaseEvent> events, int expectedVersion) {
         var eventStream = eventStoreRepository.findByAggregateIdentifier(aggregateId);

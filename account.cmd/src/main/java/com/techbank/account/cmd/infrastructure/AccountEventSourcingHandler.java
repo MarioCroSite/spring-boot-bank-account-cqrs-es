@@ -13,6 +13,10 @@ import java.util.Comparator;
 public class AccountEventSourcingHandler implements EventSourcingHandler<AccountAggregate> {
     private EventStore eventStore;
 
+    public AccountEventSourcingHandler(EventStore eventStore) {
+        this.eventStore = eventStore;
+    }
+
     @Override
     public void save(AggregateRoot aggregateRoot) {
         eventStore.saveEvents(aggregateRoot.getId(), aggregateRoot.getUncommittedChanges(), aggregateRoot.getVersion());
