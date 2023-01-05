@@ -14,6 +14,11 @@ public class CommandApplication {
 
 	private CommandHandler commandHandler;
 
+	public CommandApplication(CommandDispatcher commandDispatcher, CommandHandler commandHandler) {
+		this.commandDispatcher = commandDispatcher;
+		this.commandHandler = commandHandler;
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(CommandApplication.class, args);
 	}

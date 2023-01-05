@@ -1,4 +1,4 @@
-package com.techbank.account.query.infrastructure;
+package com.techbank.account.query.infrastructure.handlers;
 
 import com.techbank.account.common.events.AccountClosedEvent;
 import com.techbank.account.common.events.AccountOpenedEvent;
@@ -6,7 +6,6 @@ import com.techbank.account.common.events.FundsDepositedEvent;
 import com.techbank.account.common.events.FundsWithdrawnEvent;
 import com.techbank.account.query.domain.AccountRepository;
 import com.techbank.account.query.domain.BankAccount;
-import com.techbank.account.query.infrastructure.handlers.EventHandler;
 import org.springframework.stereotype.Service;
 
 @Service

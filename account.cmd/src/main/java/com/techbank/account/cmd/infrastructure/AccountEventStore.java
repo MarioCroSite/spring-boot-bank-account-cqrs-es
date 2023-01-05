@@ -46,7 +46,6 @@ public class AccountEventStore implements EventStore {
 
             var persistedEvent = eventStoreRepository.save(eventModel);
             if(!persistedEvent.getId().isEmpty()) {
-                //TODO: produce event to kafka
                 eventProducer.produce(event.getClass().getSimpleName(), event);
             }
         }

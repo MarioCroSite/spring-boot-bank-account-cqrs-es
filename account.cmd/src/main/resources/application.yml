@@ -7,6 +7,11 @@ spring:
       host: localhost
       port: 27017
       database: bankAccount
+      #username: root
+      #password: rootpass
+      #uri: mongodb://root:rootpass@localhost:27017/bankAccount?authSource=admin
+      #authentication-database: bankAccount
+      #auto-index-creation: true
   kafka:
     producer:
       bootstrap-servers: localhost:9092
