@@ -20,6 +20,10 @@ public class AccountAggregate extends AggregateRoot {
         return this.balance;
     }
 
+    public Boolean isActive() {
+        return this.active;
+    }
+
     public AccountAggregate(OpenAccountCommand command) {
         raiseEvent(AccountOpenedEvent.builder()
                 .id(command.getId())

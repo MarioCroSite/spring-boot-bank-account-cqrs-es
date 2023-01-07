@@ -53,13 +53,23 @@ public class AccountEventStore implements EventStore {
     }
 
     @Override
-    public List<BaseEvent> getEvent(String aggregateId) {
+    public List<BaseEvent> getEvents(String aggregateId) {
         var eventStream = eventStoreRepository.findByAggregateIdentifier(aggregateId);
         if(eventStream == null || eventStream.isEmpty()) {
             throw new AggregateNotFoundException("Incorrect account ID provided!");
         }
 
         return eventStream.stream().map(EventModel::getEventData).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> getAggregateIds() {
+        var eventStream = eventStoreRepository.findAll();
+        if(eventStream == null || eventStream.isEmpty()) {
+            throw new IllegalStateException("Could not retrive event stream from the event store!");
+        } else {
+            return eventStream.stream().map(EventModel::getAggregateIdentifier).distinct().collect(Collectors.toList());
+        }
     }
 
 }
